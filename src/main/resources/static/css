@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.hero-section {
+    padding: 100px 20px;
+    background: #eeeeee;
+}
+
+.hero-section h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.product-card {
+    height: 100%;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    height: 250px;
+    object-fit: cover;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 50px;
+}
