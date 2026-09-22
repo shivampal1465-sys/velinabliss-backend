@@ -5,7 +5,7 @@ import com.velinabliss.Velinabliss.entity.User;
 import com.velinabliss.Velinabliss.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.servlet.http.HttpSession;
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin
@@ -87,7 +87,7 @@ public class UserController {
     // =========================
     @PostMapping("/login")
     public ResponseEntity<?> login(
-            @RequestBody User loginUser) {
+            @RequestBody User loginUser,HttpSession session) {
 
         if (loginUser.getEmail() == null ||
                 loginUser.getEmail().trim().isEmpty()) {
@@ -124,6 +124,7 @@ public class UserController {
                     .badRequest()
                     .body("Invalid email or password");
         }
+        session.setAttribute("userId", user.getId());
 
         // Password response me nahi bhejna
         user.setPassword(null);
