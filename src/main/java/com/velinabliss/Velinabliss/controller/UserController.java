@@ -131,5 +131,25 @@ public class UserController {
 
         return ResponseEntity.ok(user);
     }
+    @GetMapping("/session")
+    public ResponseEntity<?> checkSession(HttpSession session) {
+
+        Object userId = session.getAttribute("userId");
+
+        if (userId == null) {
+            return ResponseEntity.ok(
+                    java.util.Map.of(
+                            "loggedIn", false
+                    )
+            );
+        }
+
+        return ResponseEntity.ok(
+                java.util.Map.of(
+                        "loggedIn", true,
+                        "userId", userId
+                )
+        );
+    }
 }
 
