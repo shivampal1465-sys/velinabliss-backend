@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.HttpSession;
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin
+@CrossOrigin(
+        origins = "https://dawn-pine-150e.shivampal1465.workers.dev",
+        allowCredentials = "true"
+)
 public class UserController {
 
     private final UserRepository userRepository;
